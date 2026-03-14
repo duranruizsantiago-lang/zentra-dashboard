@@ -1,0 +1,61 @@
+{
+  "name": "zentra-dashboard",
+  "productName": "Zentra",
+  "private": true,
+  "version": "1.0.3",
+  "description": "Zentra Dashboard Desktop Application",
+  "author": "Zentra",
+  "type": "module",
+  "main": "main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"vite --port 3333 --strictPort\" \"wait-on tcp:3333 && electron .\"",
+    "electron:build": "vite build && electron-builder"
+  },
+  "build": {
+    "appId": "com.zentra.dashboard",
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.business",
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "directories": {
+      "output": "zentra-dist"
+    },
+    "files": [
+      "dist/**/*",
+      "main.cjs"
+    ]
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.98.0",
+    "electron-serve": "^3.0.1",
+    "framer-motion": "^12.34.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "recharts": "^3.7.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "concurrently": "^9.2.1",
+    "electron": "^40.6.0",
+    "electron-builder": "^26.8.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^7.3.1",
+    "vite-plugin-pwa": "^1.2.0",
+    "wait-on": "^9.0.4"
+  }
+}
